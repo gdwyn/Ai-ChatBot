@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CED0B03A2B23B3AA00F6C031 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED0B0392B23B3AA00F6C031 /* ChatView.swift */; };
 		CED0B03C2B23BFD700F6C031 /* ChatOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED0B03B2B23BFD700F6C031 /* ChatOptions.swift */; };
+		CED0B03F2B23F74800F6C031 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED0B03E2B23F74800F6C031 /* ColorExtension.swift */; };
 		CEF1E6A82B197D3C00B695F1 /* AiChatBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1E6A72B197D3C00B695F1 /* AiChatBotApp.swift */; };
 		CEF1E6AA2B197D3C00B695F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1E6A92B197D3C00B695F1 /* ContentView.swift */; };
 		CEF1E6AC2B197D3F00B695F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF1E6AB2B197D3F00B695F1 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		CED0B0392B23B3AA00F6C031 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		CED0B03B2B23BFD700F6C031 /* ChatOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOptions.swift; sourceTree = "<group>"; };
+		CED0B03E2B23F74800F6C031 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		CEF1E6A42B197D3C00B695F1 /* AiChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF1E6A72B197D3C00B695F1 /* AiChatBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiChatBotApp.swift; sourceTree = "<group>"; };
 		CEF1E6A92B197D3C00B695F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CED0B03D2B23F71600F6C031 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CED0B03E2B23F74800F6C031 /* ColorExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		CEF1E69B2B197D3B00B695F1 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +73,7 @@
 				CEF1E6A92B197D3C00B695F1 /* ContentView.swift */,
 				CEF1E6B52B197D6200B695F1 /* view */,
 				CEF1E6B82B197E0400B695F1 /* components */,
+				CED0B03D2B23F71600F6C031 /* extensions */,
 				CEF1E6AB2B197D3F00B695F1 /* Assets.xcassets */,
 				CEF1E6AD2B197D3F00B695F1 /* Preview Content */,
 			);
@@ -170,6 +181,7 @@
 				CED0B03C2B23BFD700F6C031 /* ChatOptions.swift in Sources */,
 				CED0B03A2B23B3AA00F6C031 /* ChatView.swift in Sources */,
 				CEF1E6B72B197D8000B695F1 /* HomeView.swift in Sources */,
+				CED0B03F2B23F74800F6C031 /* ColorExtension.swift in Sources */,
 				CEF1E6A82B197D3C00B695F1 /* AiChatBotApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

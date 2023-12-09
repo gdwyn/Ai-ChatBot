@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    let buddies = ["buddy1", "buddy2", "buddy3", "buddy4", "buddy5", "buddy6"]
+    let buddies = ["Nexus", "Synth", "Quasar", "Zenith", "Spark", "Sage"]
     @State private var buddySize : CGFloat = 100
     @State private var selectedBuddyIndex = 0
     
@@ -30,49 +30,58 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Circle()
-                    .frame(width: 50)
-                    .foregroundColor(.gray)
+                Image("profile")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(Color.kGray, lineWidth: 1)
+                    )
             }
             .padding()
             // Hi there and image
             
-            Text("Select your buddy")
-                .font(.largeTitle.bold())
-                .frame(width: 200)
-                .padding(.horizontal, 8)
+            Text("""
+                Select
+                your buddy
+                """)
+                .font(.largeTitle)
+                .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 14) {
                     ForEach(buddies.indices, id: \.self) { index in
-                        let buddy = buddies[index]
                         Button {
                             withAnimation() {
                                 selectedBuddyIndex = index
                             }
                         } label: {
-                            VStack(spacing: 14) {
+                            VStack(spacing: 12) {
+                                Image(buddies[index])
+                                    .resizable()
+                                    .frame(width: (selectedBuddyIndex == index) ? 120 : 90, height: (selectedBuddyIndex == index) ? 120 : 90)
+                                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 26, height: 10)))
                                 Circle()
-                                    .frame(width: (selectedBuddyIndex == index) ? 120 : 90)
-                                    .foregroundColor(.gray)
-                                Circle()
-                                    .frame(width: 8)
+                                    .frame(width: 6)
                                     .foregroundColor(selectedBuddyIndex == index ? .black : .clear)
+                                
                             }
                         }
                     }
 
                 }
+                .frame(height: 180)
                 .padding(.horizontal)
-                .padding(.vertical, 32)
+                .padding(.bottom, 18)
             }
             // buddies scroll view
             
             HStack(spacing: 14){
-                ChatOptions(isLong: true, title: "Talk with \(selectedBuddy)", color: .blue)
+                ChatOptions(isLong: true, title: "Talk with \(selectedBuddy)", color: .kBlue, icon: "mic.fill")
                 VStack(spacing: 14) {
-                    ChatOptions(isLong: false, title: "Chat with \(selectedBuddy))", color: .green)
-                    ChatOptions(isLong: false, title: "Ai Image search", color: .purple)
+                    ChatOptions(isLong: false, title: "Chat with \(selectedBuddy)", color: .kGray, icon: "text.bubble.fill")
+                    ChatOptions(isLong: false, title: "Ai Image search", color: .kPink, icon: "wand.and.stars.inverse")
                 }
             }
             .padding(.horizontal)
