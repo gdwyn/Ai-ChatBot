@@ -50,14 +50,15 @@ struct ChatOptions: View {
                 
                 Text(title)
                     .font(.callout)
-                    .frame(width: 100)
-                    .padding(.horizontal, -14)
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(.black)
+
                 
             }
                 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.vertical, 22)
+        .padding(.vertical, 14)
         .padding(.horizontal, 14)
         .background(color.opacity(0.15))
         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 24, height: 24)))

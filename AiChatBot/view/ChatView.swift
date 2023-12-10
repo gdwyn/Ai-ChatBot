@@ -8,34 +8,96 @@
 import SwiftUI
 
 struct ChatView: View {
+    @State private var isListening = false
+    @Environment(\.presentationMode) var presentationMode
+
+    var buddy : String
+
     var body: some View {
-        VStack (spacing: 32) {
-            HStack(spacing: .infinity){
-                Image(systemName: "arrow.backward")
+            VStack (spacing: 32) {
+                HStack{
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                            .foregroundStyle(.black)
+                    }
+                    
+                    Spacer()
+                    
+                    VStack{
+                        Image(buddy)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(RoundedRectangle(cornerSize: CGSize(width: 18, height: 10)))
+                        Text(buddy)
+                            .font(.callout)
+                            .foregroundStyle(.gray)
+                            
+                    }
+                    Spacer()
+                    Image(systemName: "ellipsis")
+                    
+                }
+                //top row
                 
-                VStack{
-                    Circle()
-                        .frame(width: 50)
-                    Text("Robo")
+                if isListening {
+                    Color.clear
+                        .frame(height: 54)
+                } else {
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
                 }
                 
-                Image(systemName: "ellipsis")
-
+                Text("Hey buddy! What's the scoop?")
+                    .font(isListening ? .footnote : .title)
+                    .foregroundStyle(isListening ? .clear : .kGray)
+                    .multilineTextAlignment(.center)
+                
+                VStack(spacing: 24) {
+                    SpeechOrbAnimation()
+                        .frame(width: isListening ? 140 : 0, height: isListening ? 130 : 0)
+                    
+                    Text("I'm listening")
+                        .font(.title3)
+                        .foregroundStyle(isListening ? .kGray : .clear)
+                }
+                
+                Spacer()
+                
+                
+                Button{
+                    
+                    withAnimation{
+                        if isListening {
+                            isListening = false
+                        } else {
+                            isListening = true
+                        }
+                        
+                    }
+                } label: {
+                    Image(systemName: isListening ? "xmark" : "mic.fill")
+                        .font(.title)
+                        .foregroundStyle(isListening ? .kGray : .kBlue)
+                        .padding(26)
+                        .background(
+                            Circle()
+                                .foregroundColor(isListening ? .kGray.opacity(0.1) : .kBlue.opacity(0.1))
+                        )
+                }
+                
             }
-//            SpeechOrbAnimation()
-//                .frame(width: 140, height: 130)
-            
-            Text("I'm listening")
-                .font(.title3)
-                .foregroundStyle(.gray.opacity(0.7))
-            
-            
-            Color.clear
-                .frame(height: 250)
-        }
+            .padding()
+            .navigationBarItems(leading: EmptyView())
+            .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    ChatView()
+    ChatView(buddy: "Sage")
 }
